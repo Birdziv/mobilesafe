@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lzf.mobilesafe">
+    package="com.lzf.mobilesafe"
+    android:versionName="1.0"
+    android:versionCode="1">
+    <!-- 本地版本号与服务器不一致，应该提示用户更新-->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
