@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.lzf.mobilesafe.R;
+import com.lzf.mobilesafe.utils.ConstantValue;
+import com.lzf.mobilesafe.utils.SpUtils;
 import com.lzf.mobilesafe.view.SettingItemView;
 
 /**
@@ -19,8 +21,15 @@ public class SettingActivity extends Activity{
         initUpdate();
     }
 
+    /**
+     * 版本更新开关
+     */
     private void initUpdate() {
         final SettingItemView siv_update =(SettingItemView) findViewById(R.id.siv_update);
+        //获取已有的开关状态，用作显示
+        boolean open_update = SpUtils.getBoolean(this, ConstantValue.OPEN_UPDATE,false);
+        //是否选中，根据上一次存储的结果决定
+        siv_update.setCheck(open_update);
         siv_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,6 +37,7 @@ public class SettingActivity extends Activity{
                 //所以先获取点击之前的选中状态
                 boolean isCheck = siv_update.isCheck();
                 siv_update.setCheck(!isCheck);
+                SpUtils.putBoolean(getApplicationContext(),ConstantValue.OPEN_UPDATE,!isCheck);
             }
         });
     }

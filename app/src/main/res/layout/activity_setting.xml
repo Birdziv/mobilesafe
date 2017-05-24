@@ -14,9 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
     </com.lzf.mobilesafe.view.SettingItemView>
-    <com.lzf.mobilesafe.view.SettingItemView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </com.lzf.mobilesafe.view.SettingItemView>
+   <!--SettingItemView需要在构建布局的时候指定title和des字符串的内容
+   自定义属性-->
 
 </LinearLayout>
