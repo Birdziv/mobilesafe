@@ -1,4 +1,4 @@
-package com.lzf.mobilesafe;
+package com.lzf.mobilesafe.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,9 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.lzf.mobilesafe.R;
 
 /**
  * Created by AZe on 2017/5/18.

@@ -9,6 +9,13 @@
         />
     <!-- 滚动文字效果-->
     <!--文字出现跑马灯效果 -->
+    <GridView
+        android:id="@+id/gv_home"
+        android:numColumns="3"
+        android:verticalSpacing="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></GridView>
+
     <TextView
         android:text="故事的小黄花，从出生那年就飘着，童年的荡秋千"
         android:layout_width="match_parent"
@@ -19,11 +26,5 @@
         android:textColor="#000"
         />
     <!-- android:numColumns制定列数 -->
-    <GridView
-        android:id="@+id/gv_home"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></GridView>
 
 </LinearLayout>

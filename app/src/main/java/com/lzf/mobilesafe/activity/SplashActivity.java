@@ -1,4 +1,4 @@
-package com.lzf.mobilesafe;
+package com.lzf.mobilesafe.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lzf.mobilesafe.R;
 import com.lzf.mobilesafe.utils.StreamUtil;
 import com.lzf.mobilesafe.utils.ToastUtil;
 
