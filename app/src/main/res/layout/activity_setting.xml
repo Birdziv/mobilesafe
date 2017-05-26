@@ -10,9 +10,21 @@
         />
 
     <com.lzf.mobilesafe.view.SettingItemView
+        xmlns:mobilesafe="http://schemas.android.com/apk/res/com.lzf.mobilesafe"
         android:id="@+id/siv_update"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        mobilesafe:destitle = "自动更新设置"
+        mobilesafe:desoff = "自动更新已关闭"
+        mobilesafe:deson = "自动更新已开启">
+    </com.lzf.mobilesafe.view.SettingItemView>
+    <com.lzf.mobilesafe.view.SettingItemView
+        xmlns:mobilesafe="http://schemas.android.com/apk/res/com.lzf.mobilesafe"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        mobilesafe:destitle = "电话归属地显示设置"
+        mobilesafe:desoff = "归属地显示已关闭"
+        mobilesafe:deson = "归属地显示已开启">
     </com.lzf.mobilesafe.view.SettingItemView>
    <!--SettingItemView需要在构建布局的时候指定title和des字符串的内容
    自定义属性-->

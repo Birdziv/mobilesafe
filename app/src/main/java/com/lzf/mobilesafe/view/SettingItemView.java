@@ -2,6 +2,7 @@ package com.lzf.mobilesafe.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
@@ -15,8 +16,13 @@ import com.lzf.mobilesafe.R;
 
 public class SettingItemView extends RelativeLayout {
 
+    private static final String NAMESPACE = "http://schemas.android.com/apk/res/com.lzf.mobilesafe";
     private CheckBox cb_box;
     private TextView tv_des;
+    private String tag;
+    private String mDestitle;
+    private String mDesoff;
+    private String mDeson;
 
     public SettingItemView(Context context) {
         this(context,null);
@@ -36,6 +42,28 @@ public class SettingItemView extends RelativeLayout {
         TextView tv_title =(TextView)this.findViewById(R.id.tv_title);
         tv_des = (TextView)this.findViewById(R.id.tv_des);
         cb_box = (CheckBox)this.findViewById(R.id.cb_box);
+        //获取自定义以及原生属性的操作，写在此构造方法处，AttributeSet attrs对象中获取
+        initAttrs(attrs);
+        //tv_des是控件，mDesoff是属性
+        tv_title.setText(mDestitle);
+    }
+
+    /**
+     * 构造方法中维护好的属性集合
+     * 返回属性集合中自定义的属性集
+     */
+    private void initAttrs(AttributeSet attrs) {
+        //获取属性总个数
+        //Log.i(tag,"attrs.getAttributeCout() = "+ attrs.getAttributeCount());
+        //获取属性名称以及属性值
+        //for(int i=0;i<attrs.getAttributeCount();i++){
+           // Log.i(tag,"name ="+attrs.getAttributeName(i));
+           // Log.i(tag,"value ="+attrs.getAttributeValue(i));
+       // }
+        mDestitle = attrs.getAttributeValue(NAMESPACE,"destitle");
+        mDesoff = attrs.getAttributeValue(NAMESPACE,"desoff");
+        mDeson = attrs.getAttributeValue(NAMESPACE,"deson");
+        Log.i(tag,mDestitle);
     }
 
     /**
@@ -51,9 +79,9 @@ public class SettingItemView extends RelativeLayout {
         //文字需要变化
         if(isCheck){
             //开启
-            tv_des.setText("自动更新已开启");
+            tv_des.setText(mDeson);
         }else {
-            tv_des.setText("自动更新已关闭");
+            tv_des.setText(mDesoff);
         }
     }
 }

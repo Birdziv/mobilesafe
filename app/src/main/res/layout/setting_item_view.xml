@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="自动更新设置"
+
             android:id="@+id/tv_title"
             android:textSize="22sp"
             android:textColor="#000"
@@ -15,7 +15,6 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/tv_des"
-            android:text="自动更新已关闭"
             android:layout_below="@+id/tv_title"
             android:textSize="22sp"
             android:textColor="#000"
