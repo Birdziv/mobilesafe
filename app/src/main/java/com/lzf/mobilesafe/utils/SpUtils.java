@@ -25,4 +25,21 @@ public class SpUtils {
         }
         return sp.getBoolean(key, defValue);
     }
+
+    //写
+    public static void putString(Context ctx,String key,String value){
+        //存储节点文件名称，读写方式
+        if(sp == null){
+            sp = ctx.getSharedPreferences("config",Context.MODE_PRIVATE);
+        }
+        sp.edit().putString(key, value).commit();
+    }
+    //读
+    public static String getString(Context ctx,String key,String defValue){
+        //存储节点文件名称，读写方式
+        if(sp == null){
+            sp = ctx.getSharedPreferences("config",Context.MODE_PRIVATE);
+        }
+        return sp.getString(key, defValue);
+    }
 }

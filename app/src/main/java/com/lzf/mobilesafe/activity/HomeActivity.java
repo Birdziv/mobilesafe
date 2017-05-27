@@ -3,6 +3,8 @@ package com.lzf.mobilesafe.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lzf.mobilesafe.R;
+import com.lzf.mobilesafe.utils.ConstantValue;
+import com.lzf.mobilesafe.utils.SpUtils;
 
 /**
  * Created by AZe on 2017/5/18.
@@ -50,6 +54,10 @@ public class HomeActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
+                    case 0:
+                        //开启对话框
+                        showDialog();
+                        break;
                     case 8:
                         Intent intent = new Intent(getApplicationContext(),SettingActivity.class);
                         startActivity(intent);
@@ -59,6 +67,39 @@ public class HomeActivity extends Activity {
             }
         });
     }
+
+    private void showDialog() {
+        //判断本地是否有存储密码
+        String psd = SpUtils.getString(this, ConstantValue.MOBILE_SAFE_PSD,"");
+        if (TextUtils.isEmpty(psd)){
+            //初始设置密码对话框
+            showSetPsdDialog();
+        }else {
+            //确认密码对话框
+            showConfirmPsdDialog();
+        }
+    }
+
+    /**
+     * 设置密码对话框
+     */
+    private void showSetPsdDialog() {
+        //因为需要去自己定义对话框的展示样式，所以需要调用dialog.setView(view);
+        //view是由自己编写的xml转换成的view对象xml-->view
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog dialog = builder.create();
+        View view = View.inflate(this,R.layout.dialog_set_psd,null);
+        //让对话框显示自己定义的对话框界面
+        dialog.setView(view);
+        dialog.show();
+    }
+
+    /**
+     * 确认密码对话框
+     */
+    private void showConfirmPsdDialog() {
+    }
+
 
     private void initUI() {
         gv_home = (GridView) findViewById(R.id.gv_home);
